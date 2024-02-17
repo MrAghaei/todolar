@@ -2,12 +2,14 @@ import { Component } from '@angular/core';
 import {ButtonComponent} from "../button/button.component";
 import {UiService} from "../../services/Ui.service";
 import {Subscription} from "rxjs";
+import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
-    ButtonComponent
+    ButtonComponent,
+    NgForOf
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
