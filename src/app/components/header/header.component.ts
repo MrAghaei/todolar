@@ -11,5 +11,8 @@ import {ButtonComponent} from "../button/button.component";
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  toggleAddTask(){}
+  title = "Todolar"
+  toggleAddTask(){
+    console.log("btn click");
+  }
 }
