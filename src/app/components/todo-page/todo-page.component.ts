@@ -4,16 +4,16 @@ import {AddTaskComponent} from "../add-task/add-task.component";
 import {TasksComponent} from "../tasks/tasks.component";
 
 @Component({
-  selector: 'app-main-page',
+  selector: 'app-todo-page',
   standalone: true,
   imports: [
     HeaderComponent,
     AddTaskComponent,
     TasksComponent
   ],
-  templateUrl: './main-page.component.html',
-  styleUrl: './main-page.component.scss'
+  templateUrl: './todo-page.component.html',
+  styleUrl: './todo-page.component.scss'
 })
-export class MainPageComponent {
+export class TodoPageComponent {
 
 }
