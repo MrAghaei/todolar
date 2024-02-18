@@ -1,1 +1,11 @@
-<p *ngIf="showAddTask">add-task works!</p>
+<form *ngIf="showAddTask" (ngSubmit)="onAdd()" [formGroup]="taskForm">
+  <div >
+    <label for="text">Task</label>
+    <input class="bg-baby-blue  rounded-2xl p-2 m-2 text-blue" type="text" name="text" id="text" placeholder="Enter Task Name" formControlName="text">
+  </div>
+  <div>
+    <label  for="text">Day</label>
+    <input class="bg-baby-blue  rounded-2xl p-2 m-2 text-blue" type="text" name="day" id="day" placeholder="Enter Day" formControlName="day">
+  </div>
+  <input class="bg-main rounded-2xl p-2 mt-5 cursor-pointer shadow-md hover:shadow-xl transition-all" type="submit" value="Save Task"/>
+</form>
