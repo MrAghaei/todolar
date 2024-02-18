@@ -1,5 +1,5 @@
 
-<div class="flex flex-col gap-5 bg-tea-rose rounded-2xl p-8 shadow-2xl">
+<div class="flex flex-col gap-5 bg-midnight-blue rounded-2xl p-8 shadow-2xl">
   <app-add-task (onAddTask)="addTask($event)"></app-add-task>
   <app-task-item *ngFor="let task of tasks" [task]="task" (onDeleteTask)="deleteTask(task)"></app-task-item>
 </div>

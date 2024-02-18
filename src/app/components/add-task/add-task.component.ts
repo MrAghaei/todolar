@@ -44,8 +44,7 @@ export class AddTaskComponent implements OnInit{
       text: this.taskForm.value.text,
       day: this.taskForm.value.day
     };
-    console.log(this.taskForm.value);
     this.onAddTask.emit(newTask);
-  //
+    this.taskForm.reset();
   }
 }
