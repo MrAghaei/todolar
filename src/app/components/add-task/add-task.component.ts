@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Subscription} from "rxjs";
 import {UiService} from "../../services/Ui.service";
 import {NgIf} from "@angular/common";
@@ -20,7 +20,7 @@ export class AddTaskComponent implements OnInit{
   public showAddTask!: boolean;
   private _subscription!: Subscription;
   @Output() onAddTask: EventEmitter<any> = new EventEmitter<any>();
-
+  @Input() tasks: Task[];
   taskForm: FormGroup;
   //#region Lifecycle
   ngOnInit() {
@@ -36,13 +36,18 @@ export class AddTaskComponent implements OnInit{
   constructor(private uiService: UiService, private formBuilder: FormBuilder) {
     this._subscription = this.uiService.onToggle().subscribe((value)=> this.showAddTask = value)
   }
+  private generateId(): number {
+    return Math.floor(Math.random() * 1000);
+  }
   onAdd(): void{
     if(!this.taskForm.value.text){
       alert("Please Enter Data")
+      return
     }
     const newTask: Task = {
       text: this.taskForm.value.text,
-      day: this.taskForm.value.day
+      day: this.taskForm.value.day,
+      id: this.generateId().toString()
     };
     this.onAddTask.emit(newTask);
     this.taskForm.reset();
